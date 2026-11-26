@@ -24,6 +24,30 @@ The video skills run on a Mac with Apple silicon (Whisper runs through mlx-whisp
 `uv`, `npm` and Node 20+. `video-cleanup/scripts/setup.sh` installs the full ffmpeg build the
 others reuse.
 
+### Third-party tools the video skills use
+
+Not included in this repo; install them from their own repos. Read a repo's code before
+installing it, pin the version you reviewed, and prefer installing from the repo over a
+one-line `curl | sh`.
+
+| Tool | Licence | What it adds | Install | Notes |
+|---|---|---|---|---|
+| [Rough.js](https://github.com/rough-stuff/rough) | MIT | Pencil-sketch shapes | Already a dependency of the `motion-shorts` template | Fixed `seed` per shape, or the drawing flickers |
+| [line-art-animation](https://github.com/JDhruv14/line-art-animation) | MIT | Animated ink-line people, animals and scenes (SVG + TypeScript) | Clone into `~/.claude/skills/line-art-animation` | Node 22.18+ for its examples |
+| [hallmark](https://github.com/Nutlope/hallmark) | MIT | Design review that catches generic "AI slop" pages and visuals | Copy its `skills/hallmark` folder into `~/.claude/skills/` | Optional extras: an edit hook (`install-hook.mjs`) and AI image generation (needs a Together AI key). Both work without them |
+| [reanimate](https://github.com/NiazMorshed2007/reanimate) | MIT | Records a reference animation, rebuilds it, compares frame by frame | Copy its `skills/reanimate` folder into `~/.claude/skills/`, then run `scripts/setup.sh` | Needs Bun; first run downloads Chromium and ffmpeg (about 250 MB). See the note below |
+| [Blender MCP](https://github.com/ahujasid/mcp-for-blender) | MIT | Lets Claude drive Blender for 3D scenes | `claude mcp add -s user blender -e DISABLE_TELEMETRY=true -- uvx mcp-for-blender==<version>`, then `uvx mcp-for-blender==<version> install-addon` and enable the add-on in Blender | Sends an anonymous usage record unless `DISABLE_TELEMETRY=true`. The add-on's socket accepts commands from anything on the machine with no password: start the server in Blender only while using it |
+
+**Cloning someone else's animation (reanimate).** This is general information, not legal
+advice. Timing, easing, pacing and technique are ideas, which copyright does not protect, so
+rebuilding how something moves with your own visuals is the normal, safe use. The specific
+creative expression is protected: artwork, illustrations, characters, photos, icons,
+distinctive layouts and overall look. A frame-by-frame copy with a few colours and words
+swapped can still be a copy, and edits made afterwards do not reliably fix that. Clone
+pixel-for-pixel only your own work, work you have a licence for, or openly licensed work.
+Never copy logos, brand characters or anything that could pass as made or endorsed by the
+original author. For anything sold, widely published or high-profile, check with a lawyer.
+
 ## Using a skill
 
 Download the skill's folder (or just its `SKILL.md` when it has no scripts) and add it to

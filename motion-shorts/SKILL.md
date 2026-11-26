@@ -49,8 +49,21 @@ Layout rules for vertical shorts:
 
 ## 3. Other looks
 
-- **Hand-drawn**: Rough.js (MIT) draws sketchy shapes in SVG and works inside a Remotion
-  component; good for diagrams in an explainer.
+- **Hand-drawn**: Rough.js (MIT) is in the template. `src/Sketch.tsx` has `SketchBox`, a
+  rectangle that draws itself on in a pencil style (preview the `SketchDemo` composition).
+  Keep a fixed `seed` so the wobble does not change from frame to frame and flicker; raise
+  `roughness` and `bowing` for a looser hand. The same generator draws lines, circles,
+  ellipses, polygons and arbitrary SVG paths, so it can sketch a diagram or the
+  constellation's edges.
+- **Ink-line characters**: the third-party `line-art-animation` skill draws people and
+  animals in thin pen lines (walking, typing, reacting) as SVG components; use it for scenes
+  like "one person, one laptop" and place its SVG in a Remotion component.
+- **Design check**: the third-party `hallmark` skill reviews pages and frames for generic
+  "AI slop" design; run it on cover frames and key scenes before posting.
+- **Matching a reference motion**: the third-party `reanimate` skill measures and rebuilds an
+  animation from a video or site. Take the timing and easing, never the reference's artwork
+  (see the repo README's note on what may be copied).
+- **3D**: Blender through the Blender MCP server, for character and scene work.
 - **Landscape, multi-minute explainers** with narration: the open-source
   `anything2explainer` skill (Remotion + Kokoro TTS) makes polished 16:9 explainers but its
   size is hard-coded to 1280x720, it opens with a slow title card, and its licence is
