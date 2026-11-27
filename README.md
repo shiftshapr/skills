@@ -6,6 +6,7 @@ scripts or templates it uses.
 | Skill | What it does |
 |---|---|
 | [substack-lens-replies](substack-lens-replies/SKILL.md) | Daily Substack outreach, end to end: finds posts from your inbox and keyword search, comments with one real question through your project's lens, follows up on replies, hearts, drafts proposals, files notifications, keeps a tracker doc and emails a summary. |
+| [stash-secret](stash-secret/SKILL.md) | Puts backup codes, recovery keys and wallet seed words into the macOS Passwords app without Claude ever reading them: queues them in an import file you import by hand, then deletes it. |
 
 ## Video
 
