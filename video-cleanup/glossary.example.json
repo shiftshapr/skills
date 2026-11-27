@@ -1,0 +1,8 @@
+{
+ "_note": "Copy this file to glossary.json (git-ignored) and fill in the names Whisper mishears in your videos. 'fix' rewrites caption words (case-insensitive, punctuation kept); a clip's edl 'fixes' add to these. 'prompt' is used only for the phrase-by-phrase retake scan, never for caption transcription (a name prompt makes Whisper change words). Add a line whenever a caption gets a name wrong.",
+ "prompt": "Your name, your project, your product names, people you often mention.",
+ "fix": {
+  "Jon": "John",
+  "open AI": "OpenAI"
+ }
+}

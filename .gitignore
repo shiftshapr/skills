@@ -1,0 +1,5 @@
+# Per-user files that skills create next to themselves
+**/bin/
+**/glossary.json
+__pycache__/
+.DS_Store
